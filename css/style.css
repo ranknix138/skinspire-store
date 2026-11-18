@@ -1717,3 +1717,1214 @@ a {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
+
+
+/* ==========================================================================
+   12. Multi-View Storefront, Compact Landing Page & Sticky Bottom Dock
+   ========================================================================== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.store-main {
+  min-height: 60vh;
+}
+
+.store-view {
+  display: none;
+}
+
+.store-view.active {
+  display: block;
+  animation: viewFadeIn 0.22s ease;
+}
+
+@keyframes viewFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Compact Attractive Store Hero */
+.hero-section.hero-compact {
+  padding: 1.5rem 0 1.75rem;
+}
+
+.hero-compact .hero-grid {
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-compact .hero-badge {
+  font-size: 0.68rem;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 0.75rem;
+  max-width: 100%;
+}
+
+.hero-compact .hero-title {
+  font-size: clamp(1.55rem, 4.5vw, 2.55rem);
+  line-height: 1.15;
+  margin-bottom: 0.65rem;
+}
+
+.hero-compact .hero-description {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 1.15rem;
+  max-width: 520px;
+}
+
+.hero-compact .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-compact .hero-actions .btn-primary-vip,
+.hero-compact .hero-actions .btn-secondary-vip {
+  padding: 0.68rem 1.15rem;
+  font-size: 0.84rem;
+}
+
+.hero-compact .hero-stats-row {
+  padding-top: 1rem;
+  gap: 1.25rem;
+}
+
+.hero-compact .stat-number {
+  font-size: 1.15rem;
+}
+
+.hero-compact .stat-label {
+  font-size: 0.68rem;
+}
+
+/* Desktop Spotlight Card (Compact & Hidden on Mobile to keep landing page short) */
+.hero-spotlight-col {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .hero-section.hero-compact {
+    padding: 2.4rem 0 2.6rem;
+  }
+
+  .hero-compact .hero-grid {
+    grid-template-columns: 1.25fr 0.75fr;
+  }
+
+  .hero-spotlight-col {
+    display: block;
+  }
+
+  .hero-compact .hero-card-preview {
+    padding: 1rem;
+  }
+
+  .hero-compact .hero-preview-img-wrap {
+    height: 175px;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-preview-cat {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero-compact .hero-preview-title {
+    font-size: 0.96rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .hero-compact .hero-preview-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .hero-compact .hero-preview-price {
+    font-size: 1.2rem;
+  }
+
+  .btn-spotlight-shop {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Compact Home Storefront Bands */
+.home-band {
+  padding: 1.35rem 0;
+}
+
+.home-categories-band {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.home-featured-band {
+  background: var(--bg-soft);
+}
+
+.home-trust-band {
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+  padding: 1.25rem 0 1.65rem;
+}
+
+.band-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.band-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-dark);
+  margin-bottom: 0.15rem;
+}
+
+.band-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--noir-950);
+  line-height: 1.2;
+}
+
+.band-link-btn {
+  background: transparent;
+  border: 1px solid rgba(197, 155, 78, 0.45);
+  color: var(--gold-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.38rem 0.75rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.band-link-btn:hover {
+  background: var(--gold-primary);
+  color: #ffffff;
+  border-color: var(--gold-primary);
+}
+
+/* Visual Category Tiles Grid on Home (3x2 Mobile / 6x1 Desktop) */
+.category-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+@media (min-width: 768px) {
+  .home-band {
+    padding: 2rem 0;
+  }
+
+  .category-tiles-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+}
+
+.category-tile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 0.55rem 0.35rem;
+  cursor: pointer;
+  min-width: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.category-tile-card:hover {
+  border-color: var(--gold-primary);
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(197, 155, 78, 0.14);
+}
+
+.category-tile-thumb {
+  width: 100%;
+  height: 54px;
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin-bottom: 0.4rem;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .category-tile-thumb {
+    height: 70px;
+  }
+}
+
+.category-tile-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.category-tile-meta {
+  width: 100%;
+  min-width: 0;
+}
+
+.category-tile-name {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--noir-950);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+
+.category-tile-count {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  margin-top: 1px;
+}
+
+/* ==========================================================================
+   Compact Product Grids: 2-2-2 (2 Columns on Mobile) & 3-3 / 4-Col Desktop
+   ========================================================================== */
+.products-grid.products-grid-home,
+.products-grid.products-grid-catalog {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.6rem !important;
+}
+
+@media (min-width: 768px) {
+  .products-grid.products-grid-home {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.1rem !important;
+  }
+
+  .products-grid.products-grid-catalog {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.1rem !important;
+  }
+}
+
+@media (min-width: 1120px) {
+  .products-grid.products-grid-catalog {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1.15rem !important;
+  }
+}
+
+/* Compact, Strict-Bounds Product Card */
+.product-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 12px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .card-image-wrap {
+  height: 128px !important;
+  padding: 0.5rem !important;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product-card .card-image-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-card .card-tag {
+  top: 0.4rem !important;
+  left: 0.4rem !important;
+  font-size: 0.58rem !important;
+  padding: 0.16rem 0.45rem !important;
+  max-width: calc(100% - 12px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-card .card-content {
+  padding: 0.6rem !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.product-card .card-category-label {
+  font-size: 0.6rem !important;
+  margin-bottom: 0.2rem !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-card .card-title {
+  font-size: 0.78rem !important;
+  line-height: 1.3 !important;
+  min-height: 2.05rem !important;
+  margin-bottom: 0.35rem !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product-card .card-price-block {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  margin: auto 0 0.5rem !important;
+  padding-top: 0.4rem !important;
+  border-top: 1px dashed var(--border-light);
+}
+
+.product-card .card-vip-price {
+  font-size: 0.88rem !important;
+  font-weight: 800;
+  color: var(--noir-950);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-rating-mini {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #d97706;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.product-card .card-actions-row {
+  display: flex !important;
+  align-items: stretch;
+  gap: 0.35rem !important;
+  width: 100%;
+  min-width: 0;
+}
+
+.product-card .btn-shop-now {
+  flex: 1;
+  min-width: 0;
+  padding: 0.45rem 0.35rem !important;
+  font-size: 0.72rem !important;
+  border-radius: 8px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  justify-content: center;
+}
+
+.product-card .btn-card-wa {
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .product-card .card-image-wrap {
+    height: 175px !important;
+    padding: 0.85rem !important;
+  }
+
+  .product-card .card-content {
+    padding: 0.9rem !important;
+  }
+
+  .product-card .card-category-label {
+    font-size: 0.68rem !important;
+  }
+
+  .product-card .card-title {
+    font-size: 0.9rem !important;
+    min-height: 2.35rem !important;
+  }
+
+  .product-card .card-vip-price {
+    font-size: 1.05rem !important;
+  }
+
+  .card-rating-mini {
+    font-size: 0.75rem;
+  }
+
+  .product-card .btn-shop-now {
+    padding: 0.56rem 0.75rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  .product-card .btn-card-wa {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+.home-cta-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.35rem;
+}
+
+.btn-view-all-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--noir-950);
+  color: #ffffff;
+  border: 1px solid var(--gold-primary);
+  padding: 0.72rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+.btn-view-all-store:hover {
+  background: var(--gold-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Compact Trust Strip on Home */
+.compact-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+@media (min-width: 768px) {
+  .compact-trust-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+}
+
+.compact-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 0.65rem 0.7rem;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.trust-wa-card {
+  border-color: rgba(37, 211, 102, 0.35);
+  background: rgba(37, 211, 102, 0.06);
+}
+
+.trust-mini-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(197, 155, 78, 0.14);
+  color: var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trust-wa-icon {
+  background: #25d366;
+  color: #ffffff;
+}
+
+.trust-mini-text {
+  min-width: 0;
+}
+
+.trust-mini-text strong {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--noir-950);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trust-mini-text span {
+  display: block;
+  font-size: 0.66rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   Products View Header & Interactive Category Tiles Strip
+   ========================================================================== */
+.products-page-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 0 1rem;
+}
+
+.view-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-light);
+  color: var(--noir-950);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.btn-back-home:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-dark);
+}
+
+.view-heading-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.view-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 3.5vw, 1.55rem);
+  font-weight: 700;
+  color: var(--noir-950);
+  line-height: 1.2;
+}
+
+.view-count-pill {
+  background: rgba(197, 155, 78, 0.14);
+  color: var(--gold-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Interactive Visual Category Tiles inside Products View */
+.catalog-tiles-strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.75rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.catalog-tiles-strip::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .catalog-tiles-strip {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+.catalog-tile-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 0.35rem 0.6rem 0.35rem 0.38rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.catalog-tile-chip:hover {
+  border-color: var(--gold-primary);
+}
+
+.catalog-tile-chip.active {
+  background: var(--noir-950);
+  border-color: var(--gold-primary);
+  color: #ffffff;
+}
+
+.catalog-tile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #ffffff;
+  object-fit: contain;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.catalog-tile-text {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.catalog-tile-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.catalog-tile-qty {
+  font-size: 0.66rem;
+  font-weight: 700;
+  background: rgba(197, 155, 78, 0.2);
+  color: var(--gold-dark);
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+}
+
+.catalog-tile-chip.active .catalog-tile-qty {
+  background: var(--gold-primary);
+  color: #ffffff;
+}
+
+/* Compact Toolbar inside Products View */
+.products-page-header .catalog-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.products-page-header .search-input-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.products-page-header .catalog-search-input {
+  padding: 0.55rem 0.75rem 0.55rem 2.25rem;
+  font-size: 0.82rem;
+}
+
+.products-page-header .sortSelect {
+  padding: 0.55rem 0.65rem;
+  font-size: 0.78rem;
+  max-width: 140px;
+}
+
+#productsView .catalog-section {
+  padding: 1rem 0 2.5rem;
+  background: var(--bg-soft);
+}
+
+/* About / Order Guide / Contact View Compact Layout */
+#aboutView .benefits-section {
+  padding: 2rem 0;
+}
+
+#aboutView .benefits-grid {
+  margin-top: 1.5rem;
+}
+
+.order-guide-section {
+  padding: 2rem 0;
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.step-card {
+  background: var(--bg-soft);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+}
+
+.step-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.step-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--noir-950);
+  margin-bottom: 0.35rem;
+}
+
+.step-card p {
+  font-size: 0.84rem;
+  color: #575e6d;
+  line-height: 1.5;
+}
+
+.contact-desk-section {
+  padding: 2rem 0 2.5rem;
+  background: var(--bg-soft);
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-card-box {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contact-card-box:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-2px);
+}
+
+.contact-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-card-icon.wa-bg {
+  background: #25d366;
+  color: #ffffff;
+}
+
+.contact-card-icon.noir-bg {
+  background: var(--noir-950);
+  color: var(--gold-light);
+}
+
+.contact-card-meta {
+  min-width: 0;
+}
+
+.contact-meta-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.contact-meta-val {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--noir-950);
+  word-break: break-word;
+}
+
+.contact-meta-sub {
+  display: block;
+  font-size: 0.74rem;
+  color: #6b7280;
+}
+
+/* ==========================================================================
+   13. Category Tiles Quick Sheet Modal (From Bottom Dock)
+   ========================================================================== */
+.category-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 10, 13, 0.68);
+  backdrop-filter: blur(5px);
+  z-index: 120;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.category-sheet-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.category-sheet-dialog {
+  width: 100%;
+  max-width: 560px;
+  max-height: 82vh;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  padding: 1.15rem 1rem 1.4rem;
+  overflow-y: auto;
+  transform: translateY(40px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.category-sheet-backdrop.active .category-sheet-dialog {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .category-sheet-backdrop {
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .category-sheet-dialog {
+    border-radius: 18px;
+    padding: 1.35rem;
+  }
+}
+
+.category-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.sheet-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-dark);
+}
+
+.sheet-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--noir-950);
+}
+
+.category-sheet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+@media (min-width: 540px) {
+  .category-sheet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sheet-tile-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  text-align: left;
+  min-width: 0;
+  transition: all 0.2s ease;
+}
+
+.sheet-tile-btn:hover,
+.sheet-tile-btn.active {
+  border-color: var(--gold-primary);
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(197, 155, 78, 0.16);
+}
+
+.sheet-tile-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sheet-tile-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.sheet-tile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sheet-tile-name {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--noir-950);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sheet-tile-count {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+}
+
+.sheet-tile-arrow {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   14. Sticky Bottom App-Style Dock Bar (100% Inside Bounds on All Screens!)
+   ========================================================================== */
+.bottom-dock-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 95;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  gap: 2px;
+  background: rgba(12, 14, 19, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(197, 155, 78, 0.32);
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .bottom-dock-nav {
+    left: 50%;
+    right: auto;
+    bottom: 14px;
+    transform: translateX(-50%);
+    width: min(540px, calc(100vw - 32px));
+    border-radius: 999px;
+    border: 1px solid rgba(197, 155, 78, 0.4);
+    padding: 6px 10px;
+    gap: 6px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.dock-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  color: #c2c8d4;
+  padding: 5px 2px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  box-sizing: border-box;
+}
+
+.dock-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dock-btn.active {
+  color: #e5c37a;
+  background: rgba(197, 155, 78, 0.16);
+}
+
+.dock-btn-gold {
+  background: linear-gradient(135deg, #c59b4e 0%, #9f7932 100%);
+  color: #ffffff !important;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(197, 155, 78, 0.35);
+}
+
+.dock-btn-gold:hover {
+  filter: brightness(1.08);
+  background: linear-gradient(135deg, #d4ac60 0%, #a98137 100%);
+}
+
+.dock-btn-wa {
+  color: #4ade80;
+}
+
+.dock-btn-wa:hover {
+  color: #86efac;
+  background: rgba(37, 211, 102, 0.14);
+}
+
+.dock-icon {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.dock-label {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+  text-align: center;
+}
+
+@media (max-width: 350px) {
+  .dock-label {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 900px) {
+  .dock-btn {
+    border-radius: 999px;
+    padding: 6px 4px;
+  }
+
+  .dock-btn-gold {
+    border-radius: 999px;
+  }
+
+  .dock-label {
+    font-size: 11px;
+  }
+}
+
+/* Compact Footer + Safe Bottom Spacing above Sticky Dock */
+.site-footer {
+  padding: 2.25rem 0 5.5rem !important;
+}
+
+.footer-top-grid {
+  gap: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.footer-bottom-row {
+  padding-top: 1.25rem !important;
+  gap: 0.45rem !important;
+}
+
+.footer-credit-wrap {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+@media (min-width: 900px) {
+  .site-footer {
+    padding: 2.5rem 0 6.25rem !important;
+  }
+}
+
+/* Keep Toast Cleanly Above Bottom Dock */
+.toast-notice {
+  bottom: 5.25rem;
+  max-width: calc(100vw - 24px);
+}

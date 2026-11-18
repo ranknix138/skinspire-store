@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Skinspire Aesthetic & Technology - Official Product Catalog
  * Skinspire Aesthetic & Technology Official Inventory
  * 
@@ -97,7 +97,7 @@ const products = [
   },
   {
     id: "galvanic-bio-face-lift",
-    title: "Galvanic BIO Face Lift Machine â€“ AU-8403 Microcurrent Device",
+    title: "Galvanic BIO Face Lift Machine - AU-8403 Microcurrent Device",
     category: "Aesthetic Devices",
     categorySlug: "devices",
     originalPrice: 65000,
@@ -177,7 +177,7 @@ const products = [
   // 2. CHEMICAL PEELS & BIOREVITALIZATION
   {
     id: "biorepeel-fnd",
-    title: "BioRePeelCl3 FND Biphasic TCA Peel (5 x 6ml Vials) â€“ Made in Italy",
+    title: "BioRePeelCl3 FND Biphasic TCA Peel (5 x 6ml Vials) - Made in Italy",
     category: "Chemical Peels",
     categorySlug: "peels",
     originalPrice: 26000,
@@ -220,7 +220,7 @@ const products = [
   // 3. MESO SERUMS, COCKTAILS & EXOSOMES
   {
     id: "sculptra-plla",
-    title: "SCULPTRA Poly-L-Lactic Acid (PLLA) â€“ 2 Vials (Original)",
+    title: "SCULPTRA Poly-L-Lactic Acid (PLLA) - 2 Vials (Original)",
     category: "Dermal Fillers",
     categorySlug: "fillers",
     originalPrice: 160000,
@@ -262,7 +262,7 @@ const products = [
     id: "jennera-pn-nad",
     title: "Jennera PN NAD+ Skin Booster (2.5ml x 3 Syringes) - Korea",
     category: "Skin Boosters",
-    categorySlug: "skin-boosters",
+    categorySlug: "serums",
     originalPrice: 42000,
     price: calculateVIPPrice(42000), // 35,700 (ends in 00)
     badge: "15% OFF VIP",
@@ -280,7 +280,7 @@ const products = [
   },
   {
     id: "mesobase-stretch-scar",
-    title: "MESOBASE Stretch & Scar Cocktail (5 x 10ml) â€“ Made in Spain",
+    title: "MESOBASE Stretch & Scar Cocktail (5 x 10ml) - Made in Spain",
     category: "Meso Serums",
     categorySlug: "serums",
     originalPrice: 8500,
@@ -320,7 +320,7 @@ const products = [
   },
   {
     id: "hydurage-glutathione",
-    title: "HYDURAGE Glutathione Premium Meso Ampoules â€“ Made in France",
+    title: "HYDURAGE Glutathione Premium Meso Ampoules - Made in France",
     category: "Meso Serums",
     categorySlug: "serums",
     originalPrice: 7500,
@@ -482,7 +482,7 @@ const products = [
   },
   {
     id: "dr-althea-melaclear",
-    title: "Dr. Althea Melaclear Cream 20g â€“ Dark Spot Care",
+    title: "Dr. Althea Melaclear Cream 20g - Dark Spot Care",
     category: "Korean Skincare",
     categorySlug: "skincare",
     originalPrice: 7000,
@@ -522,7 +522,7 @@ const products = [
   },
   {
     id: "brow-lamination-kit",
-    title: "Professional Brow Lamination Kit â€“ Salon Grade System",
+    title: "Professional Brow Lamination Kit - Salon Grade System",
     category: "Salon Supplies",
     categorySlug: "salon-supplies",
     originalPrice: 6000,
@@ -560,7 +560,7 @@ const products = [
   },
   {
     id: "twoing-solid-builder-gel",
-    title: "TWOING Solid 3D Builder Nail Gel â€“ 15g Non-Stick Formula",
+    title: "TWOING Solid 3D Builder Nail Gel - 15g Non-Stick Formula",
     category: "Salon Supplies",
     categorySlug: "salon-supplies",
     originalPrice: 3800,
@@ -598,7 +598,7 @@ const products = [
   },
   {
     id: "mens-rogaine-5",
-    title: "Menâ€™s Rogaine 5% Minoxidil Foam (3-Month Supply, 3x60g)",
+    title: "Men's Rogaine 5% Minoxidil Foam (3-Month Supply, 3x60g)",
     category: "Korean Skincare",
     categorySlug: "skincare",
     originalPrice: 34000,
@@ -620,17 +620,73 @@ const products = [
 
 // Helper to get formatted PKR price string
 function formatPKR(num) {
+  return "Rs. " + num.toLocaleString('en-US');
+}
+
+function formatPKRFull(num) {
   return "Rs. " + num.toLocaleString('en-US') + " PKR";
 }
 
-// Categories list for tabs and filter
+// Top 6 Curated Featured Products for Compact Landing Page (2-2-2 mobile / 3-3 desktop)
+const featuredProductIds = [
+  "dr-pen-a9",
+  "biorepeel-fnd",
+  "high-frequency-machine",
+  "exovex-5b-exosomes",
+  "muchcaine-cream",
+  "skinspire-eyelash-kit"
+];
+
+// Dynamic Category Tiles with authentic product thumbnails and exact counts
 const categories = [
-  { name: "All Products", slug: "all", count: products.length },
-  { name: "Aesthetic Devices", slug: "devices", count: 8 },
-  { name: "Meso Serums & Boosters", slug: "serums", count: 5 },
-  { name: "Chemical Peels", slug: "peels", count: 2 },
-  { name: "Dermal Fillers", slug: "fillers", count: 1 },
-  { name: "Korean Skincare", slug: "skincare", count: 5 },
-  { name: "Clinical & Salon Supplies", slug: "salon-supplies", count: 5 }
+  {
+    name: "All Products",
+    shortName: "All Items",
+    slug: "all",
+    image: "images/products/dr-pen-a9.jpg",
+    count: products.length
+  },
+  {
+    name: "Aesthetic Devices",
+    shortName: "Devices",
+    slug: "devices",
+    image: "images/products/dr-pen-a9.jpg",
+    count: products.filter(p => p.categorySlug === "devices").length
+  },
+  {
+    name: "Meso & Boosters",
+    shortName: "Meso Serums",
+    slug: "serums",
+    image: "images/products/exovex-5b-exosomes.jpg",
+    count: products.filter(p => p.categorySlug === "serums").length
+  },
+  {
+    name: "Chemical Peels",
+    shortName: "Peels",
+    slug: "peels",
+    image: "images/products/biorepeel-fnd.jpg",
+    count: products.filter(p => p.categorySlug === "peels").length
+  },
+  {
+    name: "Dermal Fillers",
+    shortName: "Fillers",
+    slug: "fillers",
+    image: "images/products/sculptra-plla.jpg",
+    count: products.filter(p => p.categorySlug === "fillers").length
+  },
+  {
+    name: "Korean Skincare",
+    shortName: "Skincare",
+    slug: "skincare",
+    image: "images/products/anua-niacinamide.jpg",
+    count: products.filter(p => p.categorySlug === "skincare").length
+  },
+  {
+    name: "Clinic & Salon",
+    shortName: "Salon & Clinic",
+    slug: "salon-supplies",
+    image: "images/products/skinspire-eyelash-kit.jpg",
+    count: products.filter(p => p.categorySlug === "salon-supplies").length
+  }
 ];
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Skinspire Aesthetic & Technology | Pakistan's Premier Clinical Skincare Supplies</title>
+  <title>Skinspire Aesthetic & Technology | Pakistan's Premier Clinical Skincare Store</title>
   <meta name="description" content="Official Skinspire aesthetic supplies store in Pakistan. Premium Meso Serums, Dermal Fillers, Microneedling Devices, Chemical Peels, and Clinic Supplies.">
 
   <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
@@ -18,29 +18,28 @@
 <body>
 
   <!-- ==========================================================================
-       1. VIP Header & Navigation (Sleek Compact Height)
+       1. VIP Header & Navigation
        ========================================================================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Brand Logo Area (Prominent Logo Image Linking to Home) -->
-      <a href="#hero" class="brand-logo-wrap" title="Skinspire Aesthetic & Technology - Home" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+      <!-- Brand Logo Area (Prominent Double-Sized Logo Linking to Home) -->
+      <a href="#home" class="brand-logo-wrap" title="Skinspire Aesthetic & Technology - Home" onclick="event.preventDefault(); window.switchView('home')">
         <img src="images/logo.jpeg" alt="Skinspire Aesthetic & Technology" class="brand-logo-img">
       </a>
 
       <!-- Desktop Navigation Links -->
       <nav class="nav-links" aria-label="Main Navigation">
-        <a href="#hero" class="nav-link active">Home</a>
-        <a href="#catalogSection" class="nav-link">Aesthetic Catalog</a>
-        <a href="#benefits" class="nav-link">Why Skinspire</a>
-        <a href="#howToOrder" class="nav-link">Order Guide</a>
-        <a href="#contactSection" class="nav-link">Contact & Practice</a>
+        <a href="#home" class="nav-link active" data-view="home">Home</a>
+        <a href="#products" class="nav-link" data-view="products">Products</a>
+        <a href="#categories" class="nav-link" data-action="categories">Categories</a>
+        <a href="#about" class="nav-link" data-view="about">Why Skinspire</a>
+        <a href="#contact" class="nav-link" data-view="contact">Contact</a>
       </nav>
 
       <!-- Header Action Buttons -->
       <div class="header-actions">
-        <!-- Direct Quick Order Form Trigger -->
         <button class="header-btn btn-header-order" type="button" onclick="window.openOrderModal(null)">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
             <polyline points="14 2 14 8 20 8"></polyline>
             <line x1="12" y1="18" x2="12" y2="12"></line>
@@ -49,14 +48,12 @@
           <span>Quick Order</span>
         </button>
 
-        <!-- Direct WhatsApp Header Icon -->
-        <a href="https://wa.me/923077870347" target="_blank" class="header-icon-btn" title="Chat on WhatsApp">
+        <a href="https://wa.me/923077870347" target="_blank" rel="noopener noreferrer" class="header-icon-btn" title="Chat on WhatsApp">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
           </svg>
         </a>
 
-        <!-- Mobile Menu Toggle -->
         <button class="btn-menu-toggle" id="menuToggle" type="button" aria-label="Toggle Mobile Menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -69,15 +66,15 @@
   </header>
 
   <!-- ==========================================================================
-       3. Mobile Navigation Drawer
+       2. Mobile Navigation Drawer
        ========================================================================== -->
   <div class="drawer-overlay" id="drawerOverlay">
-    <div class="mobile-drawer" role="dialog" aria-modal="true">
+    <div class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Menu">
       <div class="drawer-header">
-        <div class="brand-logo-wrap">
-          <img src="images/logo.jpeg" alt="Skinspire Aesthetic & Technology" style="height: 52px; width: auto; object-fit: contain;">
-        </div>
-        <button class="modal-close-btn" id="btnCloseDrawer" type="button" style="color: #121212; background: #f3f4f6;">
+        <a href="#home" class="brand-logo-wrap" onclick="event.preventDefault(); window.closeDrawer(); window.switchView('home')">
+          <img src="images/logo.jpeg" alt="Skinspire Aesthetic & Technology" style="height: 46px; width: auto; object-fit: contain;">
+        </a>
+        <button class="modal-close-btn" id="btnCloseDrawer" type="button" style="color: #121212; background: #f3f4f6;" aria-label="Close Menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -87,268 +84,461 @@
 
       <div class="drawer-body">
         <ul class="drawer-nav-list">
-          <li><a href="#hero" class="drawer-nav-link active">Home</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="all">All Products (20)</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="meso-serums">Meso Serums</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="dermal-fillers">Dermal Fillers</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="fat-dissolving">Fat Dissolving</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="peels">Chemical Peels</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="devices">Aesthetic Devices</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="hydra-facial">Hydra Facial Solutions</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="skin-boosters">Skin Boosters</a></li>
-          <li><a href="#catalogSection" class="drawer-nav-link" data-filter="salon-supplies">Salon & Clinic Supplies</a></li>
+          <li><a href="#home" class="drawer-nav-link active" data-view="home">Home Storefront</a></li>
+          <li><a href="#products" class="drawer-nav-link" data-filter="all">All Products (30)</a></li>
+          <li><a href="#products" class="drawer-nav-link" data-filter="devices">Aesthetic Devices</a></li>
+          <li><a href="#products" class="drawer-nav-link" data-filter="serums">Meso &amp; Boosters</a></li>
+          <li><a href="#products" class="drawer-nav-link" data-filter="peels">Chemical Peels</a></li>
+          <li><a href="#products" class="drawer-nav-link" data-filter="fillers">Dermal Fillers</a></li>
+          <li><a href="#products" class="drawer-nav-link" data-filter="skincare">Korean Skincare</a></li>
+          <li><a href="#products" class="drawer-nav-link" data-filter="salon-supplies">Clinic &amp; Salon Supplies</a></li>
+          <li><a href="#about" class="drawer-nav-link" data-view="about">Why Skinspire &amp; Order Guide</a></li>
+          <li><a href="#contact" class="drawer-nav-link" data-view="contact">Contact &amp; Helpline</a></li>
         </ul>
       </div>
 
       <div class="drawer-footer">
-        <button class="btn-primary-vip" style="width: 100%; margin-bottom: 1rem;" onclick="window.closeDrawer(); window.openOrderModal(null)">
+        <button class="btn-primary-vip" style="width: 100%; margin-bottom: 0.85rem;" onclick="window.closeDrawer(); window.openOrderModal(null)">
           Open VIP Order Form
         </button>
         <div class="drawer-contact-card">
-          <span><strong>Direct Helpline:</strong> +92 307 7870347</span>
           <span><strong>WhatsApp:</strong> +92 307 7870347</span>
-          <span><strong>Inquiries:</strong> ansarch238@gmail.com</span>
+          <span><strong>Email:</strong> ansarch238@gmail.com</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- ==========================================================================
-       4. VIP Hero Section
+       3. Main Multi-View Store Container
        ========================================================================== -->
-  <section class="hero-section" id="hero">
-    <div class="hero-glow-orb"></div>
-    <div class="container hero-grid">
-      <!-- Left Column: Copy & CTAs -->
-      <div>
-        <div class="hero-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          <span>CERTIFIED AESTHETIC CLINIC SUPPLIES PAKISTAN</span>
+  <main class="store-main">
+
+    <!-- ========================================================================
+         VIEW A: HOME LANDING PAGE (Compact, Attractive Storefront + 6 Products)
+         ======================================================================== -->
+    <div id="homeView" class="store-view active">
+
+      <!-- Compact Luxury Store Hero -->
+      <section class="hero-section hero-compact" id="hero">
+        <div class="hero-glow-orb"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy-col">
+            <div class="hero-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>CERTIFIED CLINICAL SUPPLIES • PAKISTAN</span>
+            </div>
+
+            <h1 class="hero-title">
+              Luxury Clinical Skincare &amp; <span class="hero-title-highlight">Skinspire Tech</span>
+            </h1>
+
+            <p class="hero-description">
+              Genuine imported Korean meso serums, European fillers, microneedling pens &amp; chemical peels delivered across Pakistan.
+            </p>
+
+            <div class="hero-actions">
+              <button type="button" class="btn-primary-vip" onclick="window.openProductsCategory('all')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Explore All 30 Products</span>
+              </button>
+
+              <button type="button" class="btn-secondary-vip" onclick="window.openOrderModal(null)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span>Quick Order</span>
+              </button>
+            </div>
+
+            <div class="hero-stats-row">
+              <div class="hero-stat-item">
+                <span class="stat-number">2019</span>
+                <span class="stat-label">Since</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Authentic</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="stat-number">All PK</span>
+                <span class="stat-label">Delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop-only Compact Spotlight Card (Keeps Mobile Landing Page Short!) -->
+          <div class="hero-spotlight-col">
+            <div class="hero-card-preview">
+              <span class="hero-preview-badge">Top Bestseller</span>
+              <div class="hero-preview-img-wrap">
+                <img src="images/products/dr-pen-a9.jpg" alt="Dr. Pen A9 Wireless Microneedling Device">
+              </div>
+              <div class="hero-preview-cat">Aesthetic Devices • Dr. Pen</div>
+              <h3 class="hero-preview-title">Dr. Pen A9 Wireless Microneedling Device</h3>
+              <div class="hero-preview-price-row">
+                <span class="hero-preview-price">Rs. 20,400</span>
+                <button class="btn-primary-vip btn-spotlight-shop" type="button" onclick="window.openOrderModal('dr-pen-a9')">
+                  Shop Now
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <h1 class="hero-title">
-          Elevate Your Practice With <span class="hero-title-highlight">Skinspire Tech</span>
-        </h1>
-
-        <p class="hero-description">
-          Exclusively supplying Pakistan's dermatologists, aesthetic physicians, and high-end clinics with genuine imported Korean meso serums, European dermal fillers, precision microneedling devices, and clinical chemical peels.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#catalogSection" class="btn-primary-vip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-            </svg>
-            Explore VIP Catalog
-          </a>
-
-          <a href="https://wa.me/923077870347?text=Hello%20Skinspire%20Pakistan,%20I%20am%20inquiring%20about%20aesthetic%20clinic%20supplies." target="_blank" class="btn-secondary-vip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
-            </svg>
-            Order on WhatsApp
-          </a>
-        </div>
-
-        <div class="hero-stats-row">
-          <div class="hero-stat-item">
-            <span class="stat-number">2019</span>
-            <span class="stat-label">Since Inception</span>
+      <!-- Shop By Category — Visual Clickable Category Tiles -->
+      <section class="home-band home-categories-band">
+        <div class="container">
+          <div class="band-header">
+            <div>
+              <span class="band-eyebrow">Shop By Specialty</span>
+              <h2 class="band-title">Product Categories</h2>
+            </div>
+            <button type="button" class="band-link-btn" onclick="window.openProductsCategory('all')">
+              All Categories →
+            </button>
           </div>
-          <div class="hero-stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Authentic Imports</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="stat-number">All PK</span>
-            <span class="stat-label">Nationwide Dispatch</span>
+
+          <div class="category-tiles-grid" id="homeCategoryTiles">
+            <!-- Rendered dynamically via app.js -->
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Right Column: Featured Spotlight Card -->
-      <div>
-        <div class="hero-card-preview">
-          <span class="hero-preview-badge">Featured Device</span>
-          <div class="hero-preview-img-wrap">
-            <img src="images/products/dr-pen-a9.jpg" alt="Dr. Pen A9 Wireless Microneedling Device">
+      <!-- Featured Storefront — EXACTLY 6 Compact Products (2-2-2 Mobile / 3-3 Desktop) -->
+      <section class="home-band home-featured-band">
+        <div class="container">
+          <div class="band-header">
+            <div>
+              <span class="band-eyebrow">VIP Clinic Bestsellers</span>
+              <h2 class="band-title">Featured Products</h2>
+            </div>
+            <button type="button" class="band-link-btn" onclick="window.openProductsCategory('all')">
+              View All 30 →
+            </button>
           </div>
-          <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold-light); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 0.25rem;">
-            Aesthetic Devices • Dr. Pen
+
+          <div class="products-grid products-grid-home" id="homeFeaturedGrid">
+            <!-- Exactly 6 featured compact cards rendered via app.js -->
           </div>
-          <h3 class="hero-preview-title">Dr. Pen A9 Wireless Professional Microneedling Device</h3>
-          <div class="hero-preview-price-row">
-            <span class="hero-preview-price">Rs. 20,400 PKR</span>
+
+          <div class="home-cta-center">
+            <button type="button" class="btn-view-all-store" onclick="window.openProductsCategory('all')">
+              <span>View All 30 Store Products</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
           </div>
-          <button class="btn-primary-vip" style="width: 100%;" onclick="window.openOrderModal('dr-pen-a9')">
-            Shop Now (Pre-Selected)
-          </button>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+
+      <!-- Compact Store Trust Strip (Clean, Short, Zero Bloat) -->
+      <section class="home-band home-trust-band">
+        <div class="container">
+          <div class="compact-trust-grid">
+            <div class="compact-trust-item">
+              <div class="trust-mini-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="trust-mini-text">
+                <strong>100% Genuine</strong>
+                <span>Korea, Italy &amp; France</span>
+              </div>
+            </div>
+
+            <div class="compact-trust-item">
+              <div class="trust-mini-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <div class="trust-mini-text">
+                <strong>All Pakistan</strong>
+                <span>Safe Nationwide Dispatch</span>
+              </div>
+            </div>
+
+            <div class="compact-trust-item">
+              <div class="trust-mini-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="trust-mini-text">
+                <strong>Cold-Chain Safe</strong>
+                <span>Clinic-Grade Handling</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/923077870347" target="_blank" rel="noopener noreferrer" class="compact-trust-item trust-wa-card">
+              <div class="trust-mini-icon trust-wa-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
+                </svg>
+              </div>
+              <div class="trust-mini-text">
+                <strong>+92 307 7870347</strong>
+                <span>Direct WhatsApp Desk</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /#homeView -->
+
+    <!-- ========================================================================
+         VIEW B: PRODUCTS & INTERACTIVE CATEGORY TILES VIEW
+         ======================================================================== -->
+    <div id="productsView" class="store-view">
+      <section class="products-page-header">
+        <div class="container">
+          <div class="view-top-bar">
+            <button type="button" class="btn-back-home" onclick="window.switchView('home')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Home</span>
+            </button>
+            <div class="view-heading-wrap">
+              <h1 class="view-title" id="activeCategoryHeading">All Aesthetic Products</h1>
+              <span class="view-count-pill" id="resultsCount">30 items</span>
+            </div>
+          </div>
+
+          <!-- Interactive Category Tiles inside Products View -->
+          <div class="catalog-tiles-strip" id="catalogCategoryTiles" role="tablist" aria-label="Filter by Product Category">
+            <!-- Rendered dynamically via app.js -->
+          </div>
+
+          <!-- Compact Search & Sort Bar -->
+          <div class="catalog-toolbar">
+            <div class="search-input-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="catalogSearch" class="catalog-search-input" placeholder="Search serums, Dr. Pen, peels, fillers...">
+            </div>
+
+            <select id="sortSelect" class="sortSelect" aria-label="Sort products">
+              <option value="popular">Popular</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-section">
+        <div class="container">
+          <div class="products-grid products-grid-catalog" id="productsGrid">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+        </div>
+      </section>
+    </div><!-- /#productsView -->
+
+    <!-- ========================================================================
+         VIEW C: WHY SKINSPIRE, ORDER GUIDE & CONTACT VIEW
+         ======================================================================== -->
+    <div id="aboutView" class="store-view">
+      <section class="products-page-header">
+        <div class="container">
+          <div class="view-top-bar">
+            <button type="button" class="btn-back-home" onclick="window.switchView('home')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Home</span>
+            </button>
+            <div class="view-heading-wrap">
+              <h1 class="view-title">Why Skinspire &amp; Contact</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits -->
+      <section class="benefits-section" id="benefits">
+        <div class="container">
+          <div class="section-head-wrap" style="text-align: center; align-items: center;">
+            <span class="section-eyebrow">The Skinspire Standard • Since 2019</span>
+            <h2 class="section-heading">Why Leading Clinics Partner With Us</h2>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <div class="benefit-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3 class="benefit-title">100% Genuine Imports</h3>
+              <p class="benefit-text">Directly sourced from certified manufacturers in South Korea, France, and Italy with authentic batch codes.</p>
+            </div>
+
+            <div class="benefit-card">
+              <div class="benefit-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <h3 class="benefit-title">Cold-Chain Handling</h3>
+              <p class="benefit-text">Temperature-controlled packaging for sensitive PDRN serums, dermal fillers, and bioactive enzymes.</p>
+            </div>
+
+            <div class="benefit-card">
+              <div class="benefit-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3 class="benefit-title">All Pakistan Delivery</h3>
+              <p class="benefit-text">Reliable, rapid doorstep delivery across all cities and towns of Pakistan with safe transit protocols.</p>
+            </div>
+
+            <div class="benefit-card">
+              <div class="benefit-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
+              <h3 class="benefit-title">Direct WhatsApp Support</h3>
+              <p class="benefit-text">Immediate order confirmation, tracking updates, and protocol documentation on +92 307 7870347.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order Guide -->
+      <section class="order-guide-section" id="howToOrder">
+        <div class="container">
+          <div class="section-head-wrap" style="text-align: center; align-items: center;">
+            <span class="section-eyebrow">Seamless Dispatch</span>
+            <h2 class="section-heading">How To Order in 3 Simple Steps</h2>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-num">01</div>
+              <h3>Select Your Product</h3>
+              <p>Browse our catalog or tap a category tile and click <strong>"Shop Now"</strong> on your desired item.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">02</div>
+              <h3>Fill Quick Form</h3>
+              <p>Your product is automatically selected. Enter your Name, Phone Number, and Delivery City.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">03</div>
+              <h3>Instant WhatsApp Dispatch</h3>
+              <p>Click <strong>"Send via WhatsApp"</strong>. Your order goes directly to our dispatch desk on +92 307 7870347.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Desk -->
+      <section class="contact-desk-section" id="contactSection">
+        <div class="container">
+          <div class="section-head-wrap" style="text-align: center; align-items: center;">
+            <span class="section-eyebrow">Direct Contact Desk</span>
+            <h2 class="section-heading">Connect With Skinspire Pakistan</h2>
+          </div>
+
+          <div class="contact-cards-grid">
+            <a href="https://wa.me/923077870347" target="_blank" rel="noopener noreferrer" class="contact-card-box">
+              <div class="contact-card-icon wa-bg">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
+                </svg>
+              </div>
+              <div class="contact-card-meta">
+                <span class="contact-meta-label">Direct WhatsApp / Helpline</span>
+                <strong class="contact-meta-val">+92 307 7870347</strong>
+                <span class="contact-meta-sub">Mon–Sat • 10:00 AM – 10:00 PM PKT</span>
+              </div>
+            </a>
+
+            <a href="mailto:ansarch238@gmail.com" class="contact-card-box">
+              <div class="contact-card-icon noir-bg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-card-meta">
+                <span class="contact-meta-label">Official Email Address</span>
+                <strong class="contact-meta-val">ansarch238@gmail.com</strong>
+                <span class="contact-meta-sub">Clinic orders &amp; distributor inquiries</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div><!-- /#aboutView -->
+
+  </main>
 
   <!-- ==========================================================================
-       5. Curated Categories & Toolbar
+       4. Category Tiles Quick Sheet Modal (Opened from Bottom Dock "Categories")
        ========================================================================== -->
-  <section class="categories-section" id="catalogSection">
-    <div class="container">
-      <div class="section-head-wrap">
-        <span class="section-eyebrow">Professional Aesthetic Catalog</span>
-        <h2 class="section-heading">Curated Clinical Specialties</h2>
-        <p class="section-subhead">
-          Every product is formulated for medical dermatologists, aesthetic practitioners, and licensed clinic professionals with authentic clinical quality across Pakistan.
-        </p>
-      </div>
-
-      <!-- Category Filter Pills Bar -->
-      <div class="category-pills-bar" id="categoryPills" role="tablist">
-        <!-- Injected dynamically via app.js -->
-      </div>
-
-      <!-- Search, Count & Sort Toolbar -->
-      <div class="catalog-toolbar">
-        <div class="search-input-wrap">
+  <div class="category-sheet-backdrop" id="categorySheetModal" role="dialog" aria-modal="true" aria-labelledby="categorySheetTitle">
+    <div class="category-sheet-dialog">
+      <div class="category-sheet-header">
+        <div>
+          <span class="sheet-eyebrow">Browse Store Specialties</span>
+          <h3 class="sheet-title" id="categorySheetTitle">Select a Category</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="btnCloseCategorySheet" aria-label="Close Categories" style="color: #121212; background: #f3f4f6;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
-          <input type="text" id="catalogSearch" class="catalog-search-input" placeholder="Search serums, fillers, peels, Dr. Pen, or devices...">
-        </div>
-
-        <div class="toolbar-right">
-          <span class="results-count-text" id="resultsCount">Showing products...</span>
-          <select id="sortSelect" class="sortSelect" aria-label="Sort products">
-            <option value="popular">Most Popular</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Top Rated</option>
-          </select>
-        </div>
+        </button>
+      </div>
+      <div class="category-sheet-grid" id="categorySheetGrid">
+        <!-- Rendered dynamically via app.js -->
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- ==========================================================================
-       6. Dynamic Product Grid
-       ========================================================================== -->
-  <section class="catalog-section">
-    <div class="container">
-      <div class="products-grid" id="productsGrid">
-        <!-- Rendered dynamically by app.js from products.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       7. Why Choose Skinspire (VIP Benefits)
-       ========================================================================== -->
-  <section class="benefits-section" id="benefits">
-    <div class="container">
-      <div class="section-head-wrap" style="text-align: center; align-items: center;">
-        <span class="section-eyebrow">The Skinspire Standard</span>
-        <h2 class="section-heading">Why Leading Clinics Partner With Us</h2>
-        <p class="section-subhead" style="text-align: center;">
-          Supplying authentic medical technology with cold-chain reliability and dedicated clinical assistance across all 4 provinces.
-        </p>
-      </div>
-
-      <div class="benefits-grid" style="margin-top: 2.5rem;">
-        <div class="benefit-card">
-          <div class="benefit-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <h3 class="benefit-title">100% Genuine Imports</h3>
-          <p class="benefit-text">Directly sourced from certified manufacturers in South Korea, France, and Italy with authentic batch codes.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="1" y="3" width="15" height="13"></rect>
-              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-              <circle cx="5.5" cy="18.5" r="2.5"></circle>
-              <circle cx="18.5" cy="18.5" r="2.5"></circle>
-            </svg>
-          </div>
-          <h3 class="benefit-title">Cold-Chain Handling</h3>
-          <p class="benefit-text">Temperature-controlled packaging for temperature-sensitive PDRN serums, fillers, and bioactive enzymes.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="12"></line>
-              <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-          </div>
-          <h3 class="benefit-title">All Pakistan Delivery</h3>
-          <p class="benefit-text">Reliable, rapid doorstep delivery across all cities and towns of Pakistan with safe transit protocols.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon-box">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-            </svg>
-          </div>
-          <h3 class="benefit-title">Direct WhatsApp Support</h3>
-          <p class="benefit-text">Immediate order confirmation, tracking updates, and protocol documentation on +92 307 7870347.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       8. How to Order Guide
-       ========================================================================== -->
-  <section class="catalog-section" id="howToOrder" style="background: #ffffff; border-bottom: 1px solid var(--border-light);">
-    <div class="container">
-      <div class="section-head-wrap" style="text-align: center; align-items: center;">
-        <span class="section-eyebrow">Seamless Dispatch</span>
-        <h2 class="section-heading">How To Place Your Order in 3 Simple Steps</h2>
-        <p class="section-subhead" style="text-align: center;">No complicated checkouts or payment gateways needed. Direct confirmation via WhatsApp.</p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
-        <div style="background: var(--bg-soft); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); position: relative;">
-          <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold-primary); line-height: 1; margin-bottom: 0.75rem;">01</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--noir-950);">Select Your Product</h3>
-          <p style="font-size: 0.9rem; color: #575e6d;">Browse our clinical catalog and click <strong>"Shop Now"</strong> on your desired serum, device, peel, or filler.</p>
-        </div>
-
-        <div style="background: var(--bg-soft); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); position: relative;">
-          <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold-primary); line-height: 1; margin-bottom: 0.75rem;">02</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--noir-950);">Fill Quick Dispatch Form</h3>
-          <p style="font-size: 0.9rem; color: #575e6d;">Your product is automatically locked into the form. Enter your Name, Phone Number, and Delivery City.</p>
-        </div>
-
-        <div style="background: var(--bg-soft); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); position: relative;">
-          <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold-primary); line-height: 1; margin-bottom: 0.75rem;">03</div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--noir-950);">Instant WhatsApp Dispatch</h3>
-          <p style="font-size: 0.9rem; color: #575e6d;">Click <strong>"Send via WhatsApp"</strong>. Your order is instantly received by our dispatch team on +92 307 7870347.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       9. Dedicated VIP Order Modal / Form (The User's Core Requirement)
+       5. Dedicated VIP Order Modal / Form
        ========================================================================== -->
   <div class="order-modal-backdrop" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
     <div class="order-modal-dialog">
-      <!-- Modal Header -->
       <div class="modal-header-vip">
         <div class="modal-header-info">
           <h3 class="modal-title-text" id="orderModalTitle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
               <line x1="12" y1="18" x2="12" y2="12"></line>
@@ -356,7 +546,7 @@
             </svg>
             VIP Clinic Order Form
           </h3>
-          <span class="modal-subtitle-text">Skinspire Aesthetic & Technology • Direct WhatsApp Dispatch</span>
+          <span class="modal-subtitle-text">Skinspire Aesthetic &amp; Technology • Direct WhatsApp Dispatch</span>
         </div>
         <button class="modal-close-btn" id="btnCloseOrderModal" type="button" aria-label="Close Order Form">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -366,26 +556,18 @@
         </button>
       </div>
 
-      <!-- Modal Body (Form Fields) -->
       <div class="modal-body-scrollable">
-        <!-- Selected Product Box (Automatically displayed when clicked from Shop Now) -->
-        <div id="selectedProductCard" class="selected-product-box">
-          <!-- Populated by app.js -->
-        </div>
+        <div id="selectedProductCard" class="selected-product-box"></div>
 
         <form id="orderForm">
-          <!-- Dropdown visible when direct order is opened or when changing product -->
           <div class="form-group grid-full-width" id="productSelectGroup" style="display: none; margin-bottom: 1rem;">
             <label class="form-label" for="productSelect">
               <span>Select Product from Catalog: <span class="form-label-required">*</span></span>
             </label>
-            <select class="form-select" id="productSelect">
-              <!-- Populated by app.js -->
-            </select>
+            <select class="form-select" id="productSelect"></select>
           </div>
 
           <div class="order-form-grid">
-            <!-- Full Name -->
             <div class="form-group">
               <label class="form-label" for="custName">
                 <span>Your Full Name <span class="form-label-required">*</span></span>
@@ -393,7 +575,6 @@
               <input type="text" id="custName" class="form-input" placeholder="e.g. Dr. Ayesha / Ali Khan" required>
             </div>
 
-            <!-- Phone / WhatsApp -->
             <div class="form-group">
               <label class="form-label" for="custPhone">
                 <span>Phone / WhatsApp No <span class="form-label-required">*</span></span>
@@ -401,15 +582,13 @@
               <input type="tel" id="custPhone" class="form-input" placeholder="0300 1234567" required>
             </div>
 
-            <!-- Delivery Address / Location -->
             <div class="form-group grid-full-width">
               <label class="form-label" for="custLocation">
-                <span>Delivery City & Full Address <span class="form-label-required">*</span></span>
+                <span>Delivery City &amp; Full Address <span class="form-label-required">*</span></span>
               </label>
               <input type="text" id="custLocation" class="form-input" placeholder="e.g. Clinic Address, Street, City (Lahore, Karachi, Islamabad...)" required>
             </div>
 
-            <!-- Clinic / Salon Name -->
             <div class="form-group">
               <label class="form-label" for="custClinic">
                 <span>Clinic / Salon Name <span style="font-weight: 400; color: #8b93a4;">(Optional)</span></span>
@@ -417,7 +596,6 @@
               <input type="text" id="custClinic" class="form-input" placeholder="e.g. Glow Aesthetics Clinic">
             </div>
 
-            <!-- Quantity & Live Calculation Box -->
             <div class="form-group">
               <label class="form-label">
                 <span>Order Quantity:</span>
@@ -429,40 +607,33 @@
               </div>
             </div>
 
-            <!-- Special Notes / Clinical instructions -->
             <div class="form-group grid-full-width">
               <label class="form-label" for="custNotes">
-                <span>Special Instructions or Questions <span style="font-weight: 400; color: #8b93a4;">(Optional)</span></span>
+                <span>Special Instructions <span style="font-weight: 400; color: #8b93a4;">(Optional)</span></span>
               </label>
-              <textarea id="custNotes" class="form-textarea" placeholder="e.g. Please include 36-pin cartridges, need delivery before Friday..."></textarea>
+              <textarea id="custNotes" class="form-textarea" placeholder="e.g. Include cartridges, preferred delivery time..."></textarea>
             </div>
           </div>
 
-          <!-- Live Subtotal Display Card -->
           <div class="order-subtotal-card">
             <div>
               <div class="bill-label">Order Total (All Pakistan Delivery)</div>
-              <div style="font-size: 0.8rem; color: #10b981; font-weight: 600;">✓ Exact Final PKR Price</div>
+              <div style="font-size: 0.78rem; color: #10b981; font-weight: 600;">✓ Exact Final PKR Price</div>
             </div>
             <div class="live-bill-box">
-              <div class="bill-amount" id="orderLiveTotal">Rs. 0 PKR</div>
+              <div class="bill-amount" id="orderLiveTotal">Rs. 0</div>
             </div>
           </div>
 
-          <!-- Modal Footer CTA -->
           <div class="modal-footer-vip" style="padding: 1rem 0 0; background: transparent; border: none;">
             <button type="submit" class="btn-submit-whatsapp-order">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
               </svg>
-              <span>Confirm & Send Order via WhatsApp (+92 307 7870347)</span>
+              <span>Confirm &amp; Send Order via WhatsApp</span>
             </button>
             <div class="order-guarantee-note">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-              <span>No online payment gateway needed • Direct payment upon confirmation</span>
+              <span>No online payment gateway needed • Direct WhatsApp confirmation</span>
             </div>
           </div>
         </form>
@@ -471,141 +642,75 @@
   </div>
 
   <!-- ==========================================================================
-       10. Quick View Modal
+       6. Quick View Modal
        ========================================================================== -->
-  <div class="quickview-modal-backdrop" id="quickviewModal" role="dialog" aria-modal="true">
+  <div class="quickview-modal-backdrop" id="quickviewModal" role="dialog" aria-modal="true" aria-label="Product Quick View">
     <div class="quickview-dialog">
-      <div style="position: absolute; top: 1rem; right: 1rem; z-index: 10;">
-        <button class="modal-close-btn" id="btnCloseQuickview" type="button" style="background: rgba(0,0,0,0.6); color: #fff;">
+      <div style="position: absolute; top: 0.85rem; right: 0.85rem; z-index: 10;">
+        <button class="modal-close-btn" id="btnCloseQuickview" type="button" style="background: rgba(0,0,0,0.65); color: #fff;" aria-label="Close Quick View">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
-      <div class="quickview-content-grid" id="quickviewBody">
-        <!-- Injected via app.js -->
-      </div>
+      <div class="quickview-content-grid" id="quickviewBody"></div>
     </div>
   </div>
 
   <!-- ==========================================================================
-       11. Contact & Practice Section
-       ========================================================================== -->
-  <section class="benefits-section" id="contactSection" style="background: #ffffff;">
-    <div class="container">
-      <div class="section-head-wrap" style="text-align: center; align-items: center;">
-        <span class="section-eyebrow">Direct Contact & Practice Verification</span>
-        <h2 class="section-heading">Connect With Our Medical Dispatch Desk</h2>
-        <p class="section-subhead" style="text-align: center;">
-          Have questions regarding ingredient concentrations, CE certifications, or bulk clinic orders? We are just a message away.
-        </p>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem;">
-        <!-- Phone & WhatsApp Card -->
-        <div style="background: var(--bg-soft); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; align-items: center; gap: 1.25rem;">
-          <div style="width: 56px; height: 56px; border-radius: var(--radius-md); background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
-            </svg>
-          </div>
-          <div>
-            <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--gold-dark); font-weight: 700;">Direct WhatsApp / Phone</div>
-            <a href="https://wa.me/923077870347" target="_blank" style="font-size: 1.25rem; font-weight: 800; color: var(--noir-950); display: block;">+92 307 7870347</a>
-            <span style="font-size: 0.8rem; color: #6b7280;">Available Mon-Sat 10:00 AM - 10:00 PM PKT</span>
-          </div>
-        </div>
-
-        <!-- Official Email Card -->
-        <div style="background: var(--bg-soft); padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); display: flex; align-items: center; gap: 1.25rem;">
-          <div style="width: 56px; height: 56px; border-radius: var(--radius-md); background: var(--noir-950); color: var(--gold-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </div>
-          <div>
-            <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--gold-dark); font-weight: 700;">Official Inquiries Email</div>
-            <a href="mailto:ansarch238@gmail.com" style="font-size: 1.15rem; font-weight: 700; color: var(--noir-950); display: block;">ansarch238@gmail.com</a>
-            <span style="font-size: 0.8rem; color: #6b7280;">Doctor inquiries & clinical partnerships</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       12. VIP Footer
+       7. Compact VIP Footer
        ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
-        <!-- Column 1: Brand Info -->
         <div>
-          <div class="brand-text-block" style="margin-bottom: 1.25rem;">
-            <span class="brand-title" style="color: #ffffff; font-size: 1.7rem;">Skin<span>spire</span></span>
-            <span class="brand-subtitle" style="color: var(--gold-primary); font-size: 0.72rem; letter-spacing: 0.16em;">Aesthetic & Technology</span>
+          <div class="brand-text-block" style="margin-bottom: 0.85rem;">
+            <span class="brand-title" style="color: #ffffff; font-size: 1.55rem;">Skin<span>spire</span></span>
+            <span class="brand-subtitle" style="color: var(--gold-primary); font-size: 0.7rem; letter-spacing: 0.16em;">Aesthetic &amp; Technology</span>
           </div>
           <p class="footer-bio-text">
-            Skinspire Aesthetic & Technology is Pakistan's premier specialized aesthetic distributor. Delivering clinic-grade meso serums, dermal fillers, microneedling equipment, and chemical peels exclusively to certified medical professionals and salons nationwide.
+            Pakistan's premier clinical aesthetic supplier delivering authentic meso serums, fillers, microneedling devices, and peels nationwide since 2019.
           </p>
-          <div style="font-size: 0.85rem; color: var(--gold-light); font-weight: 600;">
-            ✓ Genuine Certified Imports Across All Pakistan
-          </div>
         </div>
 
-        <!-- Column 2: Specialties -->
         <div>
-          <h4 class="footer-col-title">Aesthetic Lines</h4>
+          <h4 class="footer-col-title">Shop Categories</h4>
           <ul class="footer-links-list">
-            <li class="footer-link-item"><a href="#catalogSection">Korean Meso Serums</a></li>
-            <li class="footer-link-item"><a href="#catalogSection">Monophasic Dermal Fillers</a></li>
-            <li class="footer-link-item"><a href="#catalogSection">Fat Dissolving Injections</a></li>
-            <li class="footer-link-item"><a href="#catalogSection">BioRePeel & Chemical Peels</a></li>
-            <li class="footer-link-item"><a href="#catalogSection">Dr. Pen Wireless Devices</a></li>
-            <li class="footer-link-item"><a href="#catalogSection">Hydra Facial Solutions</a></li>
+            <li class="footer-link-item"><a href="#products" onclick="event.preventDefault(); window.openProductsCategory('devices')">Aesthetic Devices</a></li>
+            <li class="footer-link-item"><a href="#products" onclick="event.preventDefault(); window.openProductsCategory('serums')">Meso &amp; Boosters</a></li>
+            <li class="footer-link-item"><a href="#products" onclick="event.preventDefault(); window.openProductsCategory('peels')">Chemical Peels</a></li>
+            <li class="footer-link-item"><a href="#products" onclick="event.preventDefault(); window.openProductsCategory('fillers')">Dermal Fillers</a></li>
+            <li class="footer-link-item"><a href="#products" onclick="event.preventDefault(); window.openProductsCategory('skincare')">Korean Skincare</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Quick Links -->
         <div>
-          <h4 class="footer-col-title">Quick Links</h4>
+          <h4 class="footer-col-title">Quick Navigation</h4>
           <ul class="footer-links-list">
-            <li class="footer-link-item"><a href="#hero">Home</a></li>
-            <li class="footer-link-item"><a href="#catalogSection">VIP Catalog</a></li>
-            <li class="footer-link-item"><a href="#benefits">The Skinspire Standard</a></li>
-            <li class="footer-link-item"><a href="#howToOrder">How To Order</a></li>
+            <li class="footer-link-item"><a href="#home" onclick="event.preventDefault(); window.switchView('home')">Home Storefront</a></li>
+            <li class="footer-link-item"><a href="#products" onclick="event.preventDefault(); window.openProductsCategory('all')">All 30 Products</a></li>
+            <li class="footer-link-item"><a href="#about" onclick="event.preventDefault(); window.switchView('about')">Why Skinspire</a></li>
+            <li class="footer-link-item"><a href="#contact" onclick="event.preventDefault(); window.switchView('contact')">Contact &amp; Helpline</a></li>
             <li class="footer-link-item"><a href="javascript:void(0)" onclick="window.openOrderModal(null)">Open Order Form</a></li>
           </ul>
         </div>
 
-        <!-- Column 4: Dedicated Contact Box -->
         <div>
           <h4 class="footer-col-title">Order Helpline</h4>
           <div class="footer-contact-box">
             <div class="contact-entry">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <div>
-                <strong>Helpline / Phone:</strong>
-                <a href="tel:+923077870347" style="color: #fff; display: block;">+92 307 7870347</a>
-              </div>
-            </div>
-
-            <div class="contact-entry">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
               </svg>
               <div>
                 <strong>Official WhatsApp:</strong>
-                <a href="https://wa.me/923077870347" target="_blank" style="color: var(--whatsapp-green); display: block;">+92 307 7870347</a>
+                <a href="https://wa.me/923077870347" target="_blank" rel="noopener noreferrer" style="color: var(--whatsapp-green); display: block;">+92 307 7870347</a>
               </div>
             </div>
 
             <div class="contact-entry">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
@@ -618,28 +723,65 @@
         </div>
       </div>
 
-      <div class="footer-bottom-row" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.65rem; text-align: center;">
-        <div>
-          © 2019 - 2026 Skinspire Aesthetic & Technology. All rights reserved.
-        </div>
-        <div style="font-size: 0.92rem; color: #d1d5db;">
-          Store Design by <a href="https://ranknix.online/" target="_blank" rel="noopener noreferrer" class="footer-credit-link" style="color: var(--gold-light); font-weight: 700; text-decoration: underline;">Ranknix</a>
+      <div class="footer-bottom-row">
+        <div>© 2019 - 2026 Skinspire Aesthetic &amp; Technology. All rights reserved.</div>
+        <div class="footer-credit-wrap">
+          Store Design by <a href="https://ranknix.online/" target="_blank" rel="noopener noreferrer" class="footer-credit-link">Ranknix</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================================================
-       13. Floating WhatsApp Quick Action Button
+       8. Sticky Bottom App-Style Dock Navigation Bar (100% Inside Bounds!)
        ========================================================================== -->
-  <a href="https://wa.me/923077870347?text=Hello%20Skinspire%20Pakistan,%20I%20would%20like%20to%20order%20aesthetic%20supplies." target="_blank" class="floating-whatsapp-btn" title="Direct WhatsApp Order">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
-    </svg>
-    <span class="floating-whatsapp-text">Order on WhatsApp</span>
-  </a>
+  <nav class="bottom-dock-nav" id="bottomDockNav" aria-label="Quick Store Navigation">
+    <button type="button" class="dock-btn active" data-dock="home" onclick="window.switchView('home')">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span class="dock-label">Home</span>
+    </button>
 
-  <!-- JavaScript Modules -->
+    <button type="button" class="dock-btn" data-dock="products" onclick="window.openProductsCategory('all')">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <span class="dock-label">Products</span>
+    </button>
+
+    <button type="button" class="dock-btn" data-dock="categories" onclick="window.openCategorySheet()">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+      </svg>
+      <span class="dock-label">Categories</span>
+    </button>
+
+    <button type="button" class="dock-btn dock-btn-gold" data-dock="order" onclick="window.openOrderModal(null)">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="12" y1="18" x2="12" y2="12"></line>
+        <line x1="9" y1="15" x2="15" y2="15"></line>
+      </svg>
+      <span class="dock-label">Order</span>
+    </button>
+
+    <a href="https://wa.me/923077870347?text=Hello%20Skinspire%20Pakistan,%20I%20would%20like%20to%20order%20aesthetic%20supplies." target="_blank" rel="noopener noreferrer" class="dock-btn dock-btn-wa" data-dock="whatsapp">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.854-.429-1.428-.588-2.355-2.029-2.427-2.124-.071-.095-.584-.778-.584-1.485 0-.707.369-1.054.5-1.2.13-.146.284-.183.379-.183.095 0 .19.002.272.006.087.004.204-.033.319.243.119.288.405.992.441 1.065.036.073.06.159.012.256-.048.098-.072.159-.143.243-.072.085-.152.19-.217.255-.072.072-.147.151-.063.295.084.145.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.037.084-.097.359-.418.455-.561.096-.144.192-.12.323-.072.131.048.835.394.978.466.143.072.239.108.275.169.036.06.036.353-.108.758z"/>
+      </svg>
+      <span class="dock-label">WhatsApp</span>
+    </a>
+  </nav>
+
+  <!-- Scripts -->
   <script src="js/products.js"></script>
   <script src="js/app.js"></script>
 </body>

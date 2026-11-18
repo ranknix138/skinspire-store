@@ -67,31 +67,27 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      1. Multi-View Switching & Synchronized Navigation Active State
      ========================================================================== */
-  function syncActiveNavigation(viewKey) {
+  function syncActiveNavigation(navKey) {
     // Desktop Top Nav
     document.querySelectorAll('.nav-links .nav-link').forEach(link => {
       const v = link.getAttribute('data-view');
-      link.classList.toggle('active', v === viewKey);
+      link.classList.toggle('active', v === navKey);
     });
 
-    // Bottom Dock Bar
+    // Bottom Dock Bar: ONLY whichever tab is clicked/active gets the gold highlight!
     document.querySelectorAll('.bottom-dock-nav .dock-btn').forEach(btn => {
       const d = btn.getAttribute('data-dock');
-      if (d === 'home' || d === 'products') {
-        btn.classList.toggle('active', d === viewKey);
-      } else if (d === 'categories') {
-        btn.classList.remove('active');
-      }
+      btn.classList.toggle('active', d === navKey);
     });
 
     // Mobile Drawer Links
     document.querySelectorAll('.drawer-nav-link').forEach(link => {
       const v = link.getAttribute('data-view');
       const f = link.getAttribute('data-filter');
-      if (viewKey === 'products' && f) {
+      if (navKey === 'products' && f) {
         link.classList.toggle('active', f === currentCategory);
       } else {
-        link.classList.toggle('active', v === viewKey);
+        link.classList.toggle('active', v === navKey);
       }
     });
   }
@@ -206,9 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (categorySheetModal) {
       categorySheetModal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      document.querySelectorAll('.bottom-dock-nav .dock-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-dock') === 'categories');
-      });
+      syncActiveNavigation('categories');
     }
   };
 
@@ -379,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (orderModal) {
       orderModal.classList.add('active');
       document.body.style.overflow = 'hidden';
+      syncActiveNavigation('order');
     }
   };
 
@@ -447,6 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (orderModal) {
       orderModal.classList.remove('active');
       document.body.style.overflow = '';
+      syncActiveNavigation(currentView);
     }
   }
 

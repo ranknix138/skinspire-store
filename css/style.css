@@ -2774,7 +2774,7 @@ html, body {
   right: 0;
   z-index: 95;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   gap: 2px;
   background: rgba(12, 14, 19, 0.96);
@@ -2795,7 +2795,7 @@ html, body {
     right: auto;
     bottom: 14px;
     transform: translateX(-50%);
-    width: min(540px, calc(100vw - 32px));
+    width: min(440px, calc(100vw - 32px));
     border-radius: 999px;
     border: 1px solid rgba(197, 155, 78, 0.4);
     padding: 6px 10px;
@@ -2833,27 +2833,6 @@ html, body {
 .dock-btn.active {
   color: #e5c37a;
   background: rgba(197, 155, 78, 0.16);
-}
-
-.dock-btn-gold {
-  background: linear-gradient(135deg, #c59b4e 0%, #9f7932 100%);
-  color: #ffffff !important;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(197, 155, 78, 0.35);
-}
-
-.dock-btn-gold:hover {
-  filter: brightness(1.08);
-  background: linear-gradient(135deg, #d4ac60 0%, #a98137 100%);
-}
-
-.dock-btn-wa {
-  color: #4ade80;
-}
-
-.dock-btn-wa:hover {
-  color: #86efac;
-  background: rgba(37, 211, 102, 0.14);
 }
 
 .dock-icon {

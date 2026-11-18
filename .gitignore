@@ -1,0 +1,12 @@
+# Exclude raw uncleaned product images and local helper scripts from live deployment
+images/products/*.webp
+images/products/high-frequency-machine-clean.png
+images/products/high-frequency.jpg
+images/products/skini-eyelash-kit.jpg
+images/logo_original.jpeg
+/serve.ps1
+/Open Store.bat
+/logo.jpeg
+WhatsApp Image*.jpeg
+.DS_Store
+Thumbs.db
